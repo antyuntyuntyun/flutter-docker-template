@@ -1,0 +1,84 @@
+{
+    "name": "Flutter-Project-Template",
+    "service": "flutter",
+    "dockerComposeFile": ["../docker-compose.yml"],
+    "workspaceFolder": "/workspace",
+    "shutdownAction": "stopCompose",
+    "settings": {
+      "editor.autoClosingBrackets": "beforeWhitespace",
+      "editor.autoClosingQuotes": "beforeWhitespace",
+      "editor.autoSurround": "brackets",
+      "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        }
+      },
+      "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        }
+      },
+      "eslint.run": "onType",
+      "markdown-preview-enhanced.enableExtendedTableSyntax": true,
+      "markdown-preview-enhanced.enableScriptExecution": true,
+      "markdown-preview-enhanced.previewTheme": "github-light.css",
+      "markdown.preview.breaks": true,
+      "markdown.extension.orderedList.marker": "one",
+      "markdown.extension.orderedList.autoRenumber": false,
+      "markdown.extension.syntax.decorations": false,
+      "markdown.extension.tableFormatter.enabled": false,
+      "[markdown]": {
+          "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+          "editor.tabSize": 4,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": true
+        }
+      },
+      "dart.flutterSdkPath": ".fvm/flutter_sdk",
+      "debug.openDebug": "openOnDebugBreak",
+      "[dart]": {
+          "editor.rulers": [
+              80
+          ],
+          "editor.selectionHighlight": false,
+          "editor.suggest.snippetsPreventQuickSuggestions": false,
+          "editor.suggestSelection": "first",
+          "editor.tabCompletion": "onlySnippets",
+          "editor.wordBasedSuggestions": false,
+          "editor.wordWrap": "bounded",
+          "editor.wordWrapColumn": 80
+      },
+      "files.exclude": {
+          ".fvm/flutter_sdk": true
+      },
+      "files.watcherExclude": {
+          "**/.fvm": true
+      },
+      "search.exclude": {
+          "**/.fvm": true
+      }
+    },
+    "extensions": [
+      "ms-azuretools.vscode-docker",
+      "helixquar.randomeverything",
+      "humao.rest-client",
+      "esbenp.prettier-vscode",
+      "coenraads.bracket-pair-colorizer-2",
+      "xabikos.javascriptsnippets",
+      "sdras.vue-vscode-snippets",
+      "donjayamanne.githistory",
+      "eamodio.gitlens",
+      "mhutchie.git-graph",
+      "gruntfuggly.todo-tree",
+      "github.vscode-pull-request-github",
+      "mutantdino.resourcemonitor",
+      "davidanson.vscode-markdownlint",
+      "yzhang.markdown-all-in-one",
+      "shd101wyy.markdown-preview-enhanced",
+      "wmaurer.change-case",
+      "editorconfig.editorconfig",
+      "mosapride.zenkaku"
+    ]
+  }

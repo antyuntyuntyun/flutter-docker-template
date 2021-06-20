@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  flutter:
+    container_name: flutter
+    build:
+      context: .
+      args:
+        # Dockerfile内でARGしている変数に.envに定義した値を代入。
+        - UBUNTU_VERSION=${UBUNTU_VERSION}
+        - TIMEZONE=${TIMEZONE}
+        - DART_VERSION=${DART_VERSION}
+        - FLUTTER_VERSION=${FLUTTER_VERSION}
+        - WEB_SERVER_PORT=${WEB_SERVER_PORT}
+        - WORKDIR=${WORKDIR}
+    volumes:
+      - .:${WORKDIR}
+      - ${USERPROFILE-~}/.ssh:/home/root/.ssh
+    tty: true
+    env_file: .env
+    ports:
+      - $WEB_SERVER_PORT:$WEB_SERVER_PORT
