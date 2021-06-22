@@ -79,6 +79,7 @@
       "shd101wyy.markdown-preview-enhanced",
       "wmaurer.change-case",
       "editorconfig.editorconfig",
-      "mosapride.zenkaku"
+      "mosapride.zenkaku",
+      "dart-code.flutter"
     ]
   }
