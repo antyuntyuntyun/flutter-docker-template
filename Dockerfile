@@ -49,8 +49,6 @@ RUN mkdir -p /usr/share/man/man1 && \
     unzip /tmp/dart-sdk.zip -d /usr/lib && rm /tmp/dart-sdk.zip
 
 # Install Flutter
-ARG WORKDIR=/workspace
-RUN cd ${WORKDIR}
 ARG PATH=/usr/lib/dart-sdk/bin:$PATH
 ARG PATH=/root/.pub-cache/bin:$PATH
 ARG FLUTTER_VERSION=2.2.0
@@ -59,7 +57,6 @@ RUN dart pub global activate fvm --verbose && \
     fvm install $FLUTTER_VERSION --verbose && \
     fvm use --force $FLUTTER_VERSION --verbose && \
     fvm flutter config --enable-web --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop --enable-android --enable-ios --enable-fuchsia && \
-    # fvm flutter precache --verbose && \
     fvm flutter doctor --verbose
 
 # TODO
@@ -84,6 +81,8 @@ RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git
     source ~/.git-completion.bash\n\
     source ~/.git-prompt.sh\n\
     export PS1='\\[\\e]0;\\u@\\h: \\w\\a\\]\${debian_chroot:+(\$debian_chroot)}\\[\\033[01;32m\\]\\u\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\[\\033[1;30m\\]\$(__git_ps1)\\[\\033[0m\\] \\$ '\n\
+    alias flutter='fvm flutter'\n\
+    export PATH='$PATH:$HOME/.pub-cache/bin'\n\
     " >>  /root/.bashrc
 
 # Clean up

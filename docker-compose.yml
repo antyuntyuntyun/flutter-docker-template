@@ -5,7 +5,7 @@ services:
     build:
       context: .
       args:
-        # Dockerfile内でARGしている変数に.envに定義した値を代入。
+        # Dockerfile内でARGしている変数に.envで定義した値を代入。
         - UBUNTU_VERSION=${UBUNTU_VERSION}
         - TIMEZONE=${TIMEZONE}
         - DART_VERSION=${DART_VERSION}
