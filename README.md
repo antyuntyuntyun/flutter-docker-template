@@ -43,12 +43,11 @@ flutter build web
 
 ```bash
 # ターゲットデバイスをChromeに指定
-# flutter run -d chrome
 # 上記コマンドでは実行されないので、以下コマンドを利用.
 # webはホットリスタートはできるがホットリロードはできない(webページを更新しないといけない)
 # ホットリロードの効く他の端末での開発が推奨
 # https://chrome.google.com/webstore/detail/dart-debug-extension/eljbmlghnomdjgdjmbdekegdkbabckhm/related
-flutter run -d web-server
+flutter run -d web-server --web-port 55555
 ```
 
 ## Getting Started

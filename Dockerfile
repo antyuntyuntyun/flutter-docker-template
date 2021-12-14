@@ -36,11 +36,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends tzdata && \
     apt-get update && \
     apt-get install -y --no-install-recommends bash ca-certificates clang cmake curl file git libglu1-mesa libgtk-3-dev ninja-build pkg-config unzip xz-utils zip wget gnupg
 
+# TODO: chrome が古いと言われてrun実行時に以下エラーが出るので調整
+# Failed to launch browser. Make sure you are using an up-to-date a or Edge. Otherwise, consider using -d web-server instead and filing an issue at https://github.com/flutter/flutter/issues.
 # Install Chrome
-RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' && \
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-    apt update && \
-    apt-get install -y --no-install-recommends google-chrome-stable
+# RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' && \
+#     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+#     apt update && \
+#     apt-get install -y --no-install-recommends google-chrome-stable
+# https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-20-04/
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome-stable_current_amd64.deb && \
+    apt install -y /tmp/google-chrome-stable_current_amd64.deb
 
 # Install Dart
 ARG DART_VERSION=2.13.0
@@ -57,9 +62,10 @@ RUN dart pub global activate fvm --verbose && \
     fvm install $FLUTTER_VERSION --verbose && \
     fvm use --force $FLUTTER_VERSION --verbose && \
     fvm flutter config --enable-web --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop --enable-android --enable-ios --enable-fuchsia && \
-    fvm flutter doctor --verbose
+    fvm flutter doctor --verbose && \
+    fvm flutter precache --verbose
 
-# TODO
+# # TODO
 # # Install Android sdk
 # RUN mkdir -p Android/sdk
 # ENV ANDROID_SDK_ROOT /usr/local/Android/sdk
